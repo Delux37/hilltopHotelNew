@@ -1,30 +1,86 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div>
+
   </div>
-  <router-view/>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+html {
+  font-size: 62.5%
 }
+
+/* FONTS */
+@font-face {
+  font-family: "caslon-medium";
+  src: url(assets/fonts/BigCaslonMedium.ttf);
+}
+
+@font-face {
+  font-family: "larsseit-light";
+  src: url(assets/fonts/Larsseit-Light.otf);
+}
+
+@font-face {
+  font-family: "larsseit-thinitalic";
+  src: url(assets/fonts/Larsseit-ThinItalic.otf);
+}
+
+@font-face {
+  font-family: "larsseit-medium";
+  src: url(assets/fonts/Larsseit-Medium.otf);
+}
+
+
+
+@font-face {
+  font-family: "larsseit-thin";
+  src: url(assets/fonts/Larsseit-Thin.otf);
+}
+
+
+@font-face {
+  font-family: "mishafi-gold";
+  src: url(assets/fonts/Mishafi-Gold.ttf);
+}
+
+/* geo fonts */
+
+@font-face {
+  font-family: "bpg-arial-caps";
+  src: url(assets/fonts/bpg-arial-caps-webfont.ttf);
+}
+
+@font-face {
+  font-family: "bpg-nateli-mtavruli";
+  src: url(assets/fonts/bpg-nateli-mtavruli-webfont.ttf);
+}
+
+@font-face {
+  font-family: "bpg-nateli-regular";
+  src: url(assets/fonts/bpg-nateli-webfont.ttf);
+}
+
+
+@font-face {
+  font-family: "bpg-arial-regular";
+  src: url(assets/fonts/bpg-arial-webfont.ttf);
+}
+
+@font-face {
+  font-family: "bpg-rioni-regular";
+  src: url(assets/fonts/bpg-rioni-contrast-webfont.ttf);
+}
+
+@font-face {
+  font-family: "larseit-thinLight-italic";
+  src: url(assets/fonts/Larsseit-LightItalic.otf);
+}
+
+
 </style>

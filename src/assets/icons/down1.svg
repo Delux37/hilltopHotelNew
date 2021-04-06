@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25.642" height="22.37" viewBox="0 0 25.642 22.37">
+  <defs>
+    <filter id="Icon_ionic-ios-arrow-down" x="0" y="0" width="25.642" height="22.37" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Icon_ionic-ios-arrow-down)">
+    <path id="Icon_ionic-ios-arrow-down-2" data-name="Icon ionic-ios-arrow-down" d="M10.01,14.3l2.89-2.892a.544.544,0,0,1,.771,0,.551.551,0,0,1,0,.774L10.4,15.457a.545.545,0,0,1-.753.016l-3.3-3.29a.546.546,0,0,1,.771-.774Z" transform="translate(2.81 -5.25)" fill="#fff"/>
+  </g>
+</svg>
