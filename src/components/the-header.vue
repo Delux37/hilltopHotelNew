@@ -1,0 +1,125 @@
+<template>
+    <div>
+        <vueper-slides 
+        :touchable="false" 
+        :bullets="false" 
+        :arrows="false"  
+        ref="myVueperSlides" 
+        fixed-height="100vh" 
+        @slide="logEvents('slide', $event)">
+            <vueper-slide
+             v-for="(slide, i) in data"
+            :key="i"
+            :title="slide.title"
+            :content="slide.sub_title"
+            :image="slide.picture.full_size"
+            :style="'background-size: ' + 'cover'" />
+            
+             />             
+        </vueper-slides>
+        <div class="custom_bullets">
+            <span 
+            v-for="data, i in data"
+            :key = i
+            @click.native="$refs.myVueperSlides.goToSlide(i)"
+            :class="{custom_bullets__bullet__active : i === index}"
+            class="custom_bullets__bullet"
+            >0{{ i + 1 }}</span>
+        </div>
+    </div>
+</template>
+
+<script>
+import { VueperSlides, VueperSlide } from 'vueperslides'
+import 'vueperslides/dist/vueperslides.css'
+
+export default {
+    components: { VueperSlides, VueperSlide },
+    props: ['data'],
+    data(){
+        return {
+            index: 0,
+        }
+    },
+    methods:{
+        test(index){
+            this.$refs.myVueperSlides.goToSlide(index);
+        },
+        logEvents (_, params) {
+            this.index = params.currentSlide.index
+        }
+
+    }
+
+}
+</script>
+
+<style lang="scss">
+div{
+    display: block;
+}
+.custom_bullets{
+    z-index: 120;
+    position: absolute;
+    top: 50%;
+    right: 3rem;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    &__bullet{
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 3rem;
+        border-right: 1px solid rgba(255, 255, 255, 0.7);;
+        padding-bottom: 0.1rem;
+        padding-right: 1.3rem;
+        font-family: 'mishafi-gold', sans-serif;
+        &__active{
+            color: #fff;
+            border-right: 3px solid #fff;
+        }
+    }
+    &__bullet:hover{
+        cursor: pointer;
+    }
+    &__bullet:first-child{
+        padding-top: 0.1rem;
+    }
+
+}
+.vueperslide__title{
+    position: absolute;
+    left: 5rem;
+    bottom: 20rem;
+    color: white;
+    font-size: 5rem;
+    font-family: 'caslon-medium';
+    font-size: 3.5rem;
+}
+.vueperslide__content{
+    position: absolute;
+    left: 5rem;
+    bottom: 15rem;
+    color: white;
+    font-family: 'caslon-medium';
+    font-size: 2.5rem;
+}
+
+
+.vueperslides__bullet .default {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  box-shadow: none;
+  transition: 0.3s;
+  width: 16px;
+  height: 16px;
+}
+
+.vueperslides__bullet--active .default {background-color: #42b983;}
+
+.vueperslides__bullet span {
+  display: block;
+  color: #fff;
+  font-size: 10px;
+  opacity: 0.8;
+}
+</style>

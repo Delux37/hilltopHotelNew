@@ -1,10 +1,38 @@
 <template>
   <div>
-
+    <nav-bar></nav-bar>
+    <the-header v-if="sliderData"
+    :data="sliderData"
+    ></the-header>
+    <room-types></room-types>
   </div>
 </template>
 
+<script>
+import navBar from './components/nav-bar.vue'
+import RoomTypes from './components/roomTypes.vue';
+import theHeader from './components/the-header.vue'
+export default {
+  components: {
+    navBar,
+    theHeader,
+    RoomTypes,
+  },
+  mounted(){
+    this.$store.dispatch('fetchSliderData');
+  },
+  computed: {
+    sliderData(){
+        return this.$store.getters.getSlider;
+    }
+  }
+}
+</script>
+
 <style lang="scss">
+$border-color: #56D9D4;
+$dark-gray-color: #464646;
+
 *{
   margin: 0;
   padding: 0;
@@ -13,6 +41,8 @@
 
 html {
   font-size: 62.5%
+}
+body {
 }
 
 /* FONTS */
