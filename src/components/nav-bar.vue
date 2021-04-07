@@ -1,22 +1,22 @@
 <template>
-    <div class="container">
-        <div class="container__logo">
-            <h1 class="container__logo--text">Hilltop Hotel</h1>
+    <div class="nav_bar_container">
+        <div class="nav_bar_container__logo">
+            <h1 class="nav_bar_container__logo--text">Hilltop Hotel</h1>
         </div>
-        <nav class="container__navigation">
-            <ul class="container__list">
-                <li class="container__list--item">Home</li>
-                <li class="container__list--item">Room Types</li>
-                <li class="container__list--item">Restaurant</li>
-                <li class="container__list--item">About us</li>
-                <li class="container__list--item">blog</li>
-                <li class="container__list--item">contact</li>
-                <li class="container__list--item">
+        <nav class="nav_bar_container__navigation">
+            <ul class="nav_bar_container__list">
+                <li class="nav_bar_container__list--item">Home</li>
+                <li class="nav_bar_container__list--item">Room Types</li>
+                <li class="nav_bar_container__list--item">Restaurant</li>
+                <li class="nav_bar_container__list--item">About us</li>
+                <li class="nav_bar_container__list--item">blog</li>
+                <li class="nav_bar_container__list--item">contact</li>
+                <li class="nav_bar_container__list--item">
                     <img src="../assets/icons/phone.svg" alt="phone_logo">
-                    <span class="container__list--item">+995 555 555 555</span>
+                    <span class="nav_bar_container__list--item">+995 555 555 555</span>
                     <img src="../assets/icons/facebook.svg" alt="facebook_logo">
                 </li>
-                <li class="container__list--item">ENG</li>
+                <li class="nav_bar_container__list--item">ENG</li>
                 
             </ul>
         </nav>
@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container{
+.nav_bar_container{
     position: absolute;
     top: 2rem;
     left: 0;

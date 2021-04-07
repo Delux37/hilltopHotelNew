@@ -1,7 +1,15 @@
 <template>
     <section>
-        <div class="content">2>
-            <room-card>
+        <h2 class="title">Room types</h2>
+        <div class="box">
+            <room-card v-for="room in roomList"
+            :key="room.id"
+            :title="room.title"
+            :price="room.price"
+            :human_capacity="room.human_capacity"
+            :image="room.primary_image.crop"
+            :description=room.description
+            >
             </room-card>
         </div>
     </section>
@@ -14,31 +22,34 @@ export default {
         roomCard
     },
     computed: {
-        roomList(){
-            console.log(this.$store.getters.getRoomTypesList)
+        roomList(){   
             return this.$store.getters.getRoomTypesList
         }
     },
     mounted(){
         this.$store.dispatch('fetchRoomTypesData');
+    
     }
     
 }
 </script>
 
 <style lang="scss" scoped>
-.content{
+.box{
     //test
     width: 100%;
     display: flex; 
-    height: 50rem;
-    bordeR: 2px solid red;
-
-    &__title{
-        text-align: center;
-        font-size: 4rem;
-        font-family: 'larsseit-light';
-    }
+    flex-wrap: wrap;
+    row-gap: 5rem;
+    // display: grid;
+    // grid-template-columns: 1fr 1fr;
+    // row-gap: 5rem;
 }
-
+.title{
+    text-align: center;
+    font-size: 4rem;
+    font-family: 'larsseit-light';
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+}
 </style>

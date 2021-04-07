@@ -42,8 +42,6 @@ $dark-gray-color: #464646;
 html {
   font-size: 62.5%
 }
-body {
-}
 
 /* FONTS */
 @font-face {

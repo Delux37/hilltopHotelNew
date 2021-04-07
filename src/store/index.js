@@ -14,6 +14,7 @@ export default createStore({
 
     setRoomTypesList(state,payload){
       state.roomTypesList = payload;
+      console.log(payload)
     }
   },
   actions: {
