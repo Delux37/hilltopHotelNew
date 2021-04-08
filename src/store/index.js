@@ -12,6 +12,8 @@ export default createStore({
     about: null,
 
     blogList: null,
+
+    contact: null,
   },
   mutations: {
     setSlide(state, payload){
@@ -32,6 +34,11 @@ export default createStore({
 
     setBlogs(state, payload){
       state.blogList = payload.results
+    },
+
+    setContact(state, payload){
+      console.log(payload);
+      state.contact = payload;
     }
 
   },
@@ -80,6 +87,15 @@ export default createStore({
       })
       commit('setBlogs', data.data)
     },
+
+    async fetchContactData({commit}) {
+      const data = await request.get('contact/', {
+          headers : {
+              'Accept-Language' : 'en'
+          }
+      })
+      commit('setContact', data.data);
+    },
   },
   getters: {
     getSlider(state){
@@ -100,6 +116,10 @@ export default createStore({
 
     getBlogs(state){
       return state.blogList;
+    },
+
+    getContact(state){
+      return state.contact
     }
   }
 })

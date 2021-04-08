@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="temp">
         <the-header v-if="sliderData"
         :data="sliderData"
         ></the-header>
@@ -14,6 +14,8 @@
         </section>
 
         <blog-section></blog-section>
+
+        <contact-section></contact-section>
     </div>
 </template>
 
@@ -23,13 +25,15 @@ import RoomTypes from '../components/roomTypes/roomTypes.vue';
 import theHeader from '../components/the-header.vue';
 import additionalInfo from '../components/additionalInfo/additional-info.vue'
 import blogSection from '../components/blogSection/blog-section.vue'
+import contactSection from '../components/contact-section.vue'
 export default {
   components: {
     navBar,
     theHeader,
     RoomTypes,
     additionalInfo,
-    blogSection
+    blogSection,
+    contactSection
   },
   mounted(){
     this.$store.dispatch('fetchSliderData');
@@ -47,6 +51,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#temp{
+  width: 100vw !important;
+  overflow: hidden;
+}
 .about-section{
   width: 100%;
   margin-top: 15rem;

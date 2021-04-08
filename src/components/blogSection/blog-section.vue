@@ -25,7 +25,6 @@ export default {
     },
     computed: {
         blogList(){
-            console.log(this.$store.getters.getBlogs)
             return this.$store.getters.getBlogs;
         }
     }
