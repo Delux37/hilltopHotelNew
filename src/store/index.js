@@ -8,6 +8,10 @@ export default createStore({
     roomTypesList: null,
 
     serviceList: null,
+
+    about: null,
+
+    blogList: null,
   },
   mutations: {
     setSlide(state, payload){
@@ -20,8 +24,15 @@ export default createStore({
 
     setService(state, payload){
       state.serviceList=payload
-      console.log(payload)
     },
+
+    setAbout(state,payload){
+      state.about = payload
+    },
+
+    setBlogs(state, payload){
+      state.blogList = payload.results
+    }
 
   },
   actions: {
@@ -51,6 +62,24 @@ export default createStore({
       })
       commit('setService', data.data)
     },
+
+    async fetchAboutData({commit}) {
+      const data = await request.get('about/', {
+          headers : {
+              'Accept-Language' : 'en'
+          }
+      })
+      commit('setAbout', data.data);
+    },
+
+    async fetchBlogs({commit}) {
+      const data = await request.get('blog/?page=1', {
+          headers : {
+              'Accept-Language' : 'en'
+          }
+      })
+      commit('setBlogs', data.data)
+    },
   },
   getters: {
     getSlider(state){
@@ -63,6 +92,14 @@ export default createStore({
 
       getServiceList(state){
         return state.serviceList
+    },
+
+    getAbout(state){
+      return state.about
+    },
+
+    getBlogs(state){
+      return state.blogList;
     }
   }
 })
