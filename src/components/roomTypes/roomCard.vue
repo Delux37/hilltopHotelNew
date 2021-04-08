@@ -13,7 +13,7 @@
                 <span v-html="description"></span>
             </p>
             <button class="container__content--button">
-                view gallery
+                View Gallery
             </button>
         </div>
     </div>
@@ -33,10 +33,10 @@ export default {
 <style lang="scss">
 .container{
     display: flex;
+    justify-content: flex-end;
     width: 50%;
     position: relative;
-    height: fit-content;
-    min-height: 30rem;
+    // height: fit-content;
     &__image{
         height: 100%;
         display: flex;
@@ -53,21 +53,22 @@ export default {
         }
     }
     &__content{
-        position: absolute;
-        top: 0;
-        right: 0;
+        // position: absolute;
+        // top: 0;
+        // right: 0;
         width: 70%;
-        height: 100%;
+        // height: 100%;
         padding-left: 7rem;
         padding-right: 5rem;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.096);
+        box-shadow: 0 0.4rem 0.3rem 0.3rem rgba(0, 0, 0, 0.096);
         &--title{
             font-family: 'caslon-medium';
             font-size: 3rem;
-            text-transform: uppercase;
+            margin-bottom: 2rem;
+            // text-transform: uppercase;
         }
         &--additional{
             margin-left: 3rem;
@@ -76,12 +77,14 @@ export default {
             font-family: 'larsseit';
             font-size: 2.2rem;
             text-transform: uppercase;
+            margin-bottom: 2rem;
         }
         &--description{
 
             font-family: 'larsseit-thin-italic';
             font-size: 2rem;
 
+            margin-bottom: 2rem;
         }
         &--button{
             border: none;
@@ -91,6 +94,7 @@ export default {
             width: fit-content;
             font-family: 'larsseit-light';
             font-size: 2rem;
+            margin-bottom: 2rem;
         }
     }
 }

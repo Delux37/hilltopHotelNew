@@ -6,6 +6,8 @@ export default createStore({
     slide: null,
 
     roomTypesList: null,
+
+    serviceList: null,
   },
   mutations: {
     setSlide(state, payload){
@@ -14,8 +16,13 @@ export default createStore({
 
     setRoomTypesList(state,payload){
       state.roomTypesList = payload;
+    },
+
+    setService(state, payload){
+      state.serviceList=payload
       console.log(payload)
-    }
+    },
+
   },
   actions: {
     async fetchSliderData({commit}) {
@@ -34,7 +41,16 @@ export default createStore({
           }
       })
       commit('setRoomTypesList', data.data);
-    }
+    },
+
+    async fetchServiceData({commit}) {
+      const data = await request.get('service/', {
+          headers : {
+              'Accept-Language' : 'en'
+          }
+      })
+      commit('setService', data.data)
+    },
   },
   getters: {
     getSlider(state){
@@ -43,6 +59,10 @@ export default createStore({
 
     getRoomTypesList(state){
       return state.roomTypesList;
-      }
+      },
+
+      getServiceList(state){
+        return state.serviceList
+    }
   }
 })

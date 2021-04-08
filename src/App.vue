@@ -1,22 +1,22 @@
 <template>
   <div>
     <nav-bar></nav-bar>
-    <the-header v-if="sliderData"
-    :data="sliderData"
-    ></the-header>
-    <room-types></room-types>
+    <router-view></router-view>
+
   </div>
 </template>
 
 <script>
 import navBar from './components/nav-bar.vue'
-import RoomTypes from './components/roomTypes.vue';
-import theHeader from './components/the-header.vue'
+import RoomTypes from './components/roomTypes/roomTypes.vue';
+import theHeader from './components/the-header.vue';
+import additionalInfo from './components/additionalInfo/additional-info.vue'
 export default {
   components: {
     navBar,
     theHeader,
     RoomTypes,
+    additionalInfo
   },
   mounted(){
     this.$store.dispatch('fetchSliderData');

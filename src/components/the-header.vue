@@ -102,24 +102,21 @@ div{
     color: white;
     font-family: 'caslon-medium';
     font-size: 2.5rem;
+    z-index: 50;
 }
 
 
 .vueperslides__bullet .default {
-  background-color: rgba(0, 0, 0, 0.3);
-  border: none;
-  box-shadow: none;
-  transition: 0.3s;
-  width: 16px;
-  height: 16px;
+    width: 8px !important;
+    height: 8px !important;
+    display: inline-block;
+    border-radius: 50%;
+    background: #fff;
+    border: none;
 }
 
-.vueperslides__bullet--active .default {background-color: #42b983;}
-
-.vueperslides__bullet span {
-  display: block;
-  color: #fff;
-  font-size: 10px;
-  opacity: 0.8;
-}
+.vueperslides__bullet--active .default {    
+    width: 16px !important;
+    border-radius: 20px;
+    }
 </style>

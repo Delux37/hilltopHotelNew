@@ -51,5 +51,6 @@ export default {
     font-family: 'larsseit-light';
     margin-top: 10rem;
     margin-bottom: 5rem;
-}
+    text-transform: uppercase;
+    }
 </style>
