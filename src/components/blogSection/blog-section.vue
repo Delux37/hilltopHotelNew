@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section id="blogSection">
         <h3 class="blog__title">BLOG</h3>
         <div class="blog__content" v-if="blogList">
             <blogCard v-for="(blog,index) in blogList"

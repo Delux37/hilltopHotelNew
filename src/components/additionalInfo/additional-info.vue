@@ -1,5 +1,5 @@
 <template>
-    <div id="servicesContainer" v-if="serviceList !== null">
+    <section id="servicesSection" v-if="serviceList !== null">
         <info-card v-for="(service,index) in serviceList"
         :key="service.id"
         :title="service.title"
@@ -7,7 +7,7 @@
         :images="service.images"
         :index="index"
         ></info-card>
-    </div>
+    </section>
 </template>
 
 <script>
@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#servicesContainer{
+#servicesSection{
     margin-top: 10rem;
     display: flex;
     flex-direction: column;

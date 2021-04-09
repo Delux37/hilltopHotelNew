@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section id="roomTypes">
         <h2 class="title">Room types</h2>
         <div class="box">
             <room-card v-for="room in roomList"

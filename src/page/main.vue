@@ -3,12 +3,11 @@
       <header class="home-intro">
         <the-header v-if="sliderData"
         :data="sliderData"
-        :isScrolled="isScrolled"
         ></the-header>
       </header>
         <room-types></room-types>
         <additional-info></additional-info>
-        <section class="about-section" v-if="aboutData">
+        <section id="aboutSection" class="about-section" v-if="aboutData">
           <h4 class="about-section__header">About us</h4>
           <p class="about-section__paragraph">
             <span v-html="aboutData.description"></span>
@@ -53,7 +52,6 @@ export default {
   methods: {
     observation(){
       const that = this;
-      console.log('observation')
       // const header = document.querySelector("section");
       const sectionOne = document.querySelector(".home-intro");
 

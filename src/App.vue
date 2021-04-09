@@ -2,7 +2,6 @@
   <div>
     <nav-bar></nav-bar>
     <router-view></router-view>
-
   </div>
 </template>
 
@@ -20,10 +19,38 @@ export default {
   },
   mounted(){
     this.$store.dispatch('fetchSliderData');
+
+    this.onScroll();
   },
   computed: {
     sliderData(){
         return this.$store.getters.getSlider;
+    }
+  },
+  methods: {
+    onScroll(){
+     
+      onscroll = function (){       
+      var sections = document.querySelectorAll('section');
+      var scrollPosition = document.documentElement.scrollTop;
+      
+        sections.forEach((section) => {
+          if(scrollPosition >= section.offsetTop - section.offsetHeight * 0.25 && scrollPosition < section.offsetTop + section.offsetHeight){
+            const currentId = section.attributes.id.value
+            const selector = `nav a[href="#${currentId}"]`;
+
+            document.querySelectorAll('nav a').forEach(el => {
+              el.classList.remove("active");
+            });
+
+            document.querySelectorAll(selector).forEach(elem => {
+              elem.classList.add('active')
+            })
+          }
+        })
+      
+      }
+
     }
   }
 }

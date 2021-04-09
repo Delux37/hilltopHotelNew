@@ -1,5 +1,5 @@
 <template>
-    <div id="header_main">
+    <section id="home" class="header_main">
         <vueper-slides 
         :touchable="false" 
         :bullets="false" 
@@ -26,7 +26,7 @@
             class="custom_bullets__bullet"
             >0{{ i + 1 }}</span>
         </div>
-    </div>
+    </section>
 </template>
 
 <script>
@@ -55,7 +55,7 @@ export default {
 </script>
 
 <style lang="scss">
-#header_main{
+.header_main{
     position: relative;
     z-index: 120;
 }

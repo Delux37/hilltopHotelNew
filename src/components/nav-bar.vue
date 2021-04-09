@@ -6,12 +6,12 @@
             </div>
             <nav class="nav_bar_container__navigation">
                 <ul class="nav_bar_container__list">
-                    <li class="nav_bar_container__list--item">Home</li>
-                    <li class="nav_bar_container__list--item">Room Types</li>
-                    <li class="nav_bar_container__list--item">Restaurant</li>
-                    <li class="nav_bar_container__list--item">About us</li>
-                    <li class="nav_bar_container__list--item">blog</li>
-                    <li class="nav_bar_container__list--item">contact</li>
+                    <li class="nav_bar_container__list--item"><a href="#home" class="active">Home</a></li>
+                    <li class="nav_bar_container__list--item"><a href="#roomTypes">Room Types</a></li>
+                    <li class="nav_bar_container__list--item"><a href="#servicesSection">Restaurant</a></li>
+                    <li class="nav_bar_container__list--item"><a href="#aboutSection">About us</a></li>
+                    <li class="nav_bar_container__list--item"><a href="#blogSection">blog</a></li>
+                    <li class="nav_bar_container__list--item"><a href="#contactSection">contact</a></li>
                     <li class="nav_bar_container__list--item">
                         <img src="../assets/icons/phone.svg" alt="phone_logo">
                         <span class="nav_bar_container__list--item">+995 555 555 555</span>
@@ -65,7 +65,6 @@ export default {
     },
     computed: {
         isScrolled(){
-            console.log(this.$store.getters.isScrolled)
             return this.$store.getters.isScrolled
         }
     }
@@ -73,7 +72,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.active{
+    border-bottom: 2px solid red;
+}
 @keyframes fade-in{
     from{
         opacity: 0;
@@ -225,6 +226,10 @@ export default {
             font-size: 2.2rem;
             color: #fff;
             line-height: 3rem;
+            a{
+                text-decoration: none;
+                color: inherit;
+            }
             & img:first-child{
                 margin-right: 0.2rem;
             }
