@@ -14,6 +14,8 @@ export default createStore({
     blogList: null,
 
     contact: null,
+
+    isScrolled: false,
   },
   mutations: {
     setSlide(state, payload){
@@ -37,8 +39,11 @@ export default createStore({
     },
 
     setContact(state, payload){
-      console.log(payload);
       state.contact = payload;
+    },
+
+    setScrolled(state,payload){
+      state.isScrolled = payload
     }
 
   },
@@ -96,6 +101,10 @@ export default createStore({
       })
       commit('setContact', data.data);
     },
+
+    isScrolled({commit}, payload){
+      commit('setScrolled', payload);
+    }
   },
   getters: {
     getSlider(state){
@@ -120,6 +129,10 @@ export default createStore({
 
     getContact(state){
       return state.contact
+    },
+
+    isScrolled(state){
+      return state.isScrolled
     }
   }
 })

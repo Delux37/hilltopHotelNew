@@ -1,6 +1,6 @@
 <template>
     <div id="wrapper">
-        <div class="nav_bar_container">
+        <div class="nav_bar_container" :class="{scrolledNavBar: isScrolled}">
             <div class="nav_bar_container__logo">
                 <h1 class="nav_bar_container__logo--text">Hilltop Hotel</h1>
             </div>
@@ -62,11 +62,18 @@ export default {
         return {
             temp: false,
         }
+    },
+    computed: {
+        isScrolled(){
+            console.log(this.$store.getters.isScrolled)
+            return this.$store.getters.isScrolled
+        }
     }
 }
 </script>
 
 <style lang="scss" scoped>
+
 @keyframes fade-in{
     from{
         opacity: 0;
@@ -185,7 +192,7 @@ export default {
     top: 2rem;
     left: 0;
     background-color: transparent;
-    z-index: 100;
+    z-index: 150;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -223,6 +230,13 @@ export default {
             }
         }
     }
+}
+.scrolledNavBar{
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
 }
 </style>
 

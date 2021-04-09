@@ -1,11 +1,13 @@
 <template>
     <div id="temp">
+      <header class="home-intro">
         <the-header v-if="sliderData"
         :data="sliderData"
+        :isScrolled="isScrolled"
         ></the-header>
+      </header>
         <room-types></room-types>
         <additional-info></additional-info>
-
         <section class="about-section" v-if="aboutData">
           <h4 class="about-section__header">About us</h4>
           <p class="about-section__paragraph">
@@ -38,6 +40,7 @@ export default {
   mounted(){
     this.$store.dispatch('fetchSliderData');
     this.$store.dispatch('fetchAboutData');
+    this.observation();
   },
   computed: {
     sliderData(){
@@ -46,15 +49,39 @@ export default {
     aboutData(){
       return this.$store.getters.getAbout
     }
+  },
+  methods: {
+    observation(){
+      const that = this;
+      console.log('observation')
+      // const header = document.querySelector("section");
+      const sectionOne = document.querySelector(".home-intro");
+
+      const sectionOneOptions = {
+        rootMargin: "-200px 0px 0px 0px"
+      };
+
+      const sectionOneObserver = new IntersectionObserver(function(
+        entries,
+        sectionOneObserver
+      ) {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) {
+            that.$store.dispatch('isScrolled', true)
+          } else {
+            that.$store.dispatch('isScrolled', false)
+          }
+        });
+      },
+      sectionOneOptions);
+      sectionOneObserver.observe(sectionOne);
+    }
   }
 }
+
 </script>
 
 <style lang="scss" scoped>
-#temp{
-  width: 100vw !important;
-  overflow: hidden;
-}
 .about-section{
   width: 100%;
   margin-top: 15rem;

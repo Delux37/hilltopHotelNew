@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="header_main">
         <vueper-slides 
         :touchable="false" 
         :bullets="false" 
@@ -55,8 +55,9 @@ export default {
 </script>
 
 <style lang="scss">
-div{
-    display: block;
+#header_main{
+    position: relative;
+    z-index: 120;
 }
 .custom_bullets{
     z-index: 120;
