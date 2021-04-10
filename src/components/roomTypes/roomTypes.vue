@@ -36,8 +36,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#roomTypes{
+    @media(max-width: 800px){
+        position: relative;
+        z-index: 500;
+        background-color: #fff;
+        width: 97%;
+        margin: -35rem auto 0 auto;
+        padding-top: 3rem;
+    }
+}
 .box{
     //test
+    // border: 2px solid blue;
     width: 100%;
     display: flex; 
     flex-wrap: wrap;
@@ -45,6 +56,9 @@ export default {
     // display: grid;
     // grid-template-columns: 1fr 1fr;
     // row-gap: 5rem;
+    @media(max-width: 800px){
+        flex-direction: column;
+    }
 }
 .title{
     text-align: center;
@@ -53,5 +67,12 @@ export default {
     margin-top: 10rem;
     margin-bottom: 5rem;
     text-transform: uppercase;
+
+        @media(max-width: 800px){
+        margin-top: 0;
+        margin-bottom: 3rem;
+        font-size: 3rem;
+    }
+
     }
 </style>

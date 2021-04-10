@@ -33,7 +33,9 @@ export default {
     justify-content: flex-end;
     position: relative;
     margin-top: 10rem;
-
+    @media (max-width: 700px){
+        flex-direction: column;
+    }
     &__box{
         position: absolute;
         left: 5rem;
@@ -44,6 +46,11 @@ export default {
         min-width: 60rem;
         z-index: 20 !important;
         background-color: #fff;
+        @media (max-width: 700px){
+            position: static;
+            width: 90%;
+            box-shadow: none;
+        }
     }
     &__content{
         padding-left: 2rem;
@@ -57,6 +64,9 @@ export default {
         width: 70%;
         z-index: 10;
         position: relative;
+        @media (max-width: 700px){
+            width: 100%;
+        }
         iframe{
             width: 100%;
         }

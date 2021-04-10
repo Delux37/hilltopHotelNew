@@ -84,18 +84,31 @@ export default {
   width: 100%;
   margin-top: 15rem;
   margin-bottom: 15rem;
+  @media (max-width: 800px){
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+  }
   &__header{
     font-family: 'larsseit-light';
     font-size: 4rem;
     display: block;
     margin: 0 auto 5rem auto;
     text-align: center;
+    @media (max-width: 800px){
+      margin: 0 auto 3rem auto;
+      font-size: 2rem;
+    }
   }
   &__paragraph{
     font-family: 'larsseit-thin-italic';
     font-size: 2.5rem;
     padding: 0 17rem;
     text-align: justify;
+    @media (max-width: 800px){
+      font-size: 1.5rem;
+    padding: 0 2rem;
+  }
+  
   }
 }
 </style>

@@ -9,12 +9,14 @@
                 <p>Price: {{ price }}</p>
                 <p>Person: {{ human_capacity }}</p>
             </div>
+            <div class="container__content__box">
             <p class="container__content--description" >
                 <span v-html="description"></span>
             </p>
             <button class="container__content--button" @click="zoomImage">
                 View Gallery
             </button>
+            </div>
         </div>
     </div>
 </template>
@@ -43,6 +45,11 @@ export default {
     width: 50%;
     position: relative;
     // height: fit-content;
+    @media(max-width: 800px){
+        width: 100%;
+        justify-content: stretch;
+    }
+    
     &__image{
         height: 100%;
         display: flex;
@@ -52,29 +59,48 @@ export default {
         top: 0;
         width: 30%;
         z-index: 10;
+        @media (max-width: 800px){
+            align-items: stretch;
+            position: static;
+            width: 50%;
+            margin-left: 2.5rem;
+        }
         & img{
             width: 100%;
             max-height: 70%;
             min-height: 50%;
+            @media (max-width: 800px){
+                min-height: 130px;
+            }
         }
     }
     &__content{
-        // position: absolute;
-        // top: 0;
-        // right: 0;
         width: 70%;
-        // height: 100%;
         padding-left: 7rem;
         padding-right: 5rem;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         box-shadow: 0 0.4rem 0.3rem 0.3rem rgba(0, 0, 0, 0.096);
+        @media (max-width: 800px){
+            box-shadow: none;
+            padding-left: 1rem;
+        }
+        &__box{
+            @media (max-width: 800px){
+                margin-left: -15rem;
+                z-index: 20;
+                background-color: #fff;
+                box-shadow: 0 0.4rem 0.3rem 0.3rem rgba(0, 0, 0, 0.096);
+                padding: 2rem;
+                display: flex;
+                flex-direction: column;
+            }
+        }
         &--title{
             font-family: 'caslon-medium';
             font-size: 3rem;
             margin-bottom: 2rem;
-            // text-transform: uppercase;
         }
         &--additional{
             margin-left: 3rem;
@@ -101,6 +127,10 @@ export default {
             font-family: 'larsseit-light';
             font-size: 2rem;
             margin-bottom: 2rem;
+            @media (max-width: 800px){
+                align-self: flex-end;
+                margin-bottom: 0;
+            }
         }
     }
 }

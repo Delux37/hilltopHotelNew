@@ -13,7 +13,7 @@
                     <li class="nav_bar_container__list--item"><a href="#blogSection">blog</a></li>
                     <li class="nav_bar_container__list--item"><a href="#contactSection">contact</a></li>
                     <li class="nav_bar_container__list--item" :class="{scrolledNavBar__additional: isScrolled || isNavigated}">
-                        <img src="../assets/icons/phone.svg" alt="phone_logo">
+                        <img src="../assets/icons/phone.svg" class="nav_bar_container__list__phone_logo" alt="phone_logo">
                         <span class="nav_bar_container__list--item">+995 555 555 555</span>
                         <img v-if="!isScrolled" src="../assets/icons/facebook.svg" alt="facebook_logo_white">
                         <img v-else src="../assets/icons/facebookmob.png" alt="fb_logo_black">
@@ -118,6 +118,9 @@ export default {
     z-index: 200;
     width: 100vw;
     display: none;
+    @media (max-width: 800px){
+        display: block;
+    }
     &__header{
         display: flex;
         justify-content: space-between;
@@ -198,6 +201,12 @@ export default {
     display: flex;
     justify-content: space-between;
     width: 100%;
+        @media (max-width: 1000px){
+        justify-content: center;
+    }
+    @media (max-width: 800px){
+        display: none;
+    }
     &__logo{
         margin-left: 5rem;
         font-family: 'caslon-medium', sans-serif;
@@ -206,6 +215,9 @@ export default {
             font-size: 3.5rem;
             letter-spacing: 0.2rem;
         }
+    @media (max-width: 1000px){
+        display: none;
+    }
     }
     &__navigation{
         display: flex;
@@ -217,7 +229,16 @@ export default {
         height: 100%;
         align-items: center;
         text-transform: uppercase;
-
+        span{
+            @media (max-width: 1200px){
+                display: none;
+            }
+        }
+        &__phone_logo{
+            @media (max-width: 1200px){
+                display: none;
+            }
+        }
         &--item{
             display: inline-block;
             margin-right: 3rem;;
@@ -228,6 +249,9 @@ export default {
             color: rgba(255, 255, 255, 0.8);
             line-height: 3rem;
             border-bottom: 2px solid transparent;
+            @media (max-width: 1660px){
+                margin-right: 1.5rem;
+            }
             a{
                 text-decoration: none;
                 color: inherit;

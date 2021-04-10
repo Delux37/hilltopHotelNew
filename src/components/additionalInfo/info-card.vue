@@ -43,9 +43,14 @@ export default {
     display: flex;
     position: relative;
     justify-content: flex-end;
-
+    @media(max-width: 800px){
+        flex-direction: column-reverse;
+    }
     &__carousel{
         flex: 0 0 80%;
+        @media(max-width: 800px){
+            flex: 0 0 100%;
+        }
     }
 
     &__content{
@@ -60,26 +65,56 @@ export default {
         box-shadow: 0 0.4rem 0.3rem 0.3rem rgba(0, 0, 0, 0.096);
         z-index: 20;
         padding: 4rem;
-
+        @media(max-width: 800px){
+            position: static;
+            margin-top: -7rem;
+            width: 90%;
+            margin-left: 5rem;
+            border-right: 1px solid #56D9D4;
+            border-left: none;
+            padding: 2rem;
+        }
             &--title{
                 font-size: 5rem;
                 font-family: 'caslon-medium';
                 margin-bottom: 7rem;
+                 @media(max-width: 800px){
+                    margin-bottom: 2rem;
+                    font-size: 3.5rem;
+                }
+                @media (max-width: 700px){
+                    font-size: 2.5rem;
+                }
             }
             &--description{
                 font-family: 'larsseit-thin-italic';
                 font-size: 2rem;
+                @media (max-width: 700px){
+                    font-size: 1.5rem;
+                }
             }
     }
 
 }
 .chessStyled{
     flex-direction: row-reverse;
+    @media(max-width: 800px){
+        flex-direction: column-reverse;
+    }
     &__content{
         border-right: 1px solid #56D9D4;
         right: 5rem;
         left: auto;
         border-left: none;
+        @media(max-width: 800px){
+            position: static;
+            margin-top: -7rem;
+            width: 90%;
+            margin-left: 5rem;
+            border-right: 1px solid #56D9D4;
+            border-left: none;
+            padding: 2rem;
+        }
     }
 }
 .vueperslides__fractions {

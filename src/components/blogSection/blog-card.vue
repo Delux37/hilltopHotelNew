@@ -4,7 +4,7 @@
             <img :src="image"/>
         </div>
         <div class="blog__container__content">
-            <h3 class="blog__container__content--title"> title</h3>
+            <h3 class="blog__container__content--title">title</h3>
             <p class="blog__container__content--description"> <span v-html="description"></span></p>
             <a class="blog__container__content--button" @click="$router.replace(slug)">Read more</a>
         </div>
@@ -22,12 +22,32 @@ export default {
     width: 47%;
     display: flex;
     position: relative;
-
+    @media (max-width: 1200px){
+        width: 50%;
+    }
+    @media (max-width: 800px){
+        width: 100%;
+        flex-direction: column;
+    }
     &__image{
         margin-left: 5rem;
         width: 45%;
+
+        @media (max-width: 1300px){
+           min-height: 180px;
+        }
+
+        @media (max-width: 800px){
+            margin-left: 0;
+            width: 70%;
+            min-height: auto;
+        }
+
         img {
             width: 100%;
+              @media (max-width: 1300px){
+               height: 100%;
+            };
         }
     }
     &__content{
@@ -46,16 +66,42 @@ export default {
         justify-content: space-between;
         border-right: 1px solid #56D9D4;
         box-shadow: 0 0.4rem 0.3rem 0.3rem rgba(0, 0, 0, 0.096);
+        @media (max-width: 1200px){
+            position: static;
+            height: 100%;
+        }
 
+        @media (max-width: 800px){
+            position: static;
+            align-self: flex-end;
+            min-height: auto;
+            max-height: auto;
+            margin-top: -10rem;
+            margin-left: -10rem;
+            margin-right: 2rem;
+            width: 40%;
+            padding: 3rem;
+        }
+        @media (max-width: 700px){
+            width: 60%;
+        }
         &--title{
             font-family: 'caslon-medium';
             font-size: 3rem;
             letter-spacing: 0.2rem;
+             @media (max-width: 1000px){
+                font-size: 2rem;
+            }
+            @media (max-width: 800px){
+                margin-bottom: 2rem;
+            }
         }
         &--description{
             font-family: 'larsseit-thin-italic';
             font-size: 2rem;
-            
+            @media (max-width: 1000px){
+                font-size: 1.5rem;
+            }
         }
         &--button{
             align-self: flex-end;

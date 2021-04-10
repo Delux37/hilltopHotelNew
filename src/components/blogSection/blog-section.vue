@@ -33,11 +33,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#blogSection{
+    @media (max-width: 800px){
+    padding-top: 3rem;
+  }
+}
 .blog__title{
     display: block;
     font-size: 4rem;
     font-family: 'larsseit-light';
     text-align: center;
+    @media (max-width: 1000px){
+        font-size: 2rem;
+    }
 }
 .blog__content{
     padding-top: 3rem;
