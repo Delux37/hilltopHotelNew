@@ -1,7 +1,11 @@
 import { createStore } from 'vuex'
 import request from './request.js'
+import zoomedImage from './zoomedImage.js'
 
 export default createStore({
+  modules: {
+    zoomedImage,
+  },
   state: {
     slide: null,
 
@@ -12,10 +16,12 @@ export default createStore({
     about: null,
 
     blogList: null,
+    blogDetail: null,
 
     contact: null,
 
     isScrolled: false,
+
   },
   mutations: {
     setSlide(state, payload){
@@ -36,6 +42,10 @@ export default createStore({
 
     setBlogs(state, payload){
       state.blogList = payload.results
+    },
+
+    setBlogDetail(state,payload){
+      state.blogDetail = payload;
     },
 
     setContact(state, payload){
@@ -93,6 +103,15 @@ export default createStore({
       commit('setBlogs', data.data)
     },
 
+    async fetchBlogDetail({commit}, payload) {
+      const data = await request.get( `blog/${payload}` , {
+          headers : {
+              'Accept-Language' : 'en'
+          }
+      })
+      commit('setBlogDetail', data.data)
+    },
+
     async fetchContactData({commit}) {
       const data = await request.get('contact/', {
           headers : {
@@ -125,6 +144,10 @@ export default createStore({
 
     getBlogs(state){
       return state.blogList;
+    },
+
+    getBlogDetail(state){
+      return state.blogDetail
     },
 
     getContact(state){

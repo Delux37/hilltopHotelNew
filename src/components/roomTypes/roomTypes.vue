@@ -9,6 +9,7 @@
             :human_capacity="room.human_capacity"
             :image="room.primary_image.crop"
             :description=room.description
+            :images="room.images"
             >
             </room-card>
         </div>

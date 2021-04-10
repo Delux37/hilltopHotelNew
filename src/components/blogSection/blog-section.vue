@@ -6,6 +6,7 @@
              :key="index"
              :title="blog.title"
              :description= "blog.short_description"
+             :slug="blog.slug"
              :image="blog.picture.crop"></blogCard>
         </div>
         <div class="blogButton__container">

@@ -12,7 +12,7 @@
             <p class="container__content--description" >
                 <span v-html="description"></span>
             </p>
-            <button class="container__content--button">
+            <button class="container__content--button" @click="zoomImage">
                 View Gallery
             </button>
         </div>
@@ -21,11 +21,17 @@
 
 <script>
 export default {
-    props: ['title', 'price', 'human_capacity', 'image', 'description' ],
+    props: ['title', 'price', 'human_capacity', 'image', 'description', 'images'],
     computed:{
         croppedDescription(){
             return this.description.substring(0, 120) + "..."
         },
+    },
+    methods: {
+        zoomImage(){
+            this.$store.dispatch('addImagesToCarousel', this.images);
+            this.$store.dispatch('zoomIn');
+        }
     }
 }
 </script>

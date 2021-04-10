@@ -6,14 +6,14 @@
         <div class="blog__container__content">
             <h3 class="blog__container__content--title"> title</h3>
             <p class="blog__container__content--description"> <span v-html="description"></span></p>
-            <a class="blog__container__content--button">Read more</a>
+            <a class="blog__container__content--button" @click="$router.replace(slug)">Read more</a>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    props: ['title', 'image', 'description'],
+    props: ['title', 'image', 'description', 'slug'],
 }
 </script>
 

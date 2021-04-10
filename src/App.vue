@@ -1,6 +1,9 @@
 <template>
   <div>
     <nav-bar></nav-bar>
+    <transition name="zoom">
+      <zoomed-images v-if="isZoomed && images.length" :images="images"></zoomed-images>
+    </transition>
     <router-view></router-view>
   </div>
 </template>
@@ -10,21 +13,28 @@ import navBar from './components/nav-bar.vue'
 import RoomTypes from './components/roomTypes/roomTypes.vue';
 import theHeader from './components/the-header.vue';
 import additionalInfo from './components/additionalInfo/additional-info.vue'
+import zoomedImages from './UI/zoomed-images.vue'
 export default {
   components: {
     navBar,
     theHeader,
     RoomTypes,
-    additionalInfo
+    additionalInfo,
+    zoomedImages
   },
   mounted(){
     this.$store.dispatch('fetchSliderData');
-
     this.onScroll();
   },
   computed: {
     sliderData(){
         return this.$store.getters.getSlider;
+    },
+    isZoomed(){
+      return this.$store.getters.isZoomed
+    },
+    images(){
+      return this.$store.getters.images;
     }
   },
   methods: {
@@ -51,6 +61,11 @@ export default {
       
       }
 
+    }
+  },
+  watch: {
+    isZoomed() {
+      document.querySelector('body').style.overflow = this.isZoomed ? 'hidden' : null;
     }
   }
 }
@@ -137,5 +152,31 @@ html {
   src: url(assets/fonts/Larsseit-LightItalic.otf);
 }
 
+/*ANIMATIONS */
+@keyframes zoomIn{
+  from{
+    opacity: 0;
+    transform: scale(0);
+  }
+  to{
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes zoomOut{
+  from{
+    opacity: 1;
+  }
+  to{
+    transform: translateY(-100vh);
+  }
+}
+.zoom-enter-active{
+  animation: zoomIn 0.5s ease-in;
+}
+
+.zoom-leave-active{
+  animation: zoomOut 0.5s ease-out;
+}
 
 </style>

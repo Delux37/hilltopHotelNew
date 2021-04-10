@@ -1,10 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import main from '../page/main.vue'
+import blogPage from '../page/blog-page.vue'
 
 const routes = [
   {
-    path: '/', component: main
+    path: '/', component: main,
   },
+  {
+    path: '/:slug', component: blogPage, params: true
+  }
 ]
 
 const router = createRouter({

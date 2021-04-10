@@ -1,21 +1,22 @@
 <template>
     <div id="wrapper">
-        <div class="nav_bar_container" :class="{scrolledNavBar: isScrolled}">
-            <div class="nav_bar_container__logo">
+        <div class="nav_bar_container" :class="{scrolledNavBar: isScrolled || isNavigated}">
+            <div class="nav_bar_container__logo" :class="{scrolledNavBar__logo: isScrolled || isNavigated}">
                 <h1 class="nav_bar_container__logo--text">Hilltop Hotel</h1>
             </div>
             <nav class="nav_bar_container__navigation">
-                <ul class="nav_bar_container__list">
+                <ul class="nav_bar_container__list" :class="{scrolledNavBar__list: isScrolled || isNavigated}">
                     <li class="nav_bar_container__list--item"><a href="#home" class="active">Home</a></li>
                     <li class="nav_bar_container__list--item"><a href="#roomTypes">Room Types</a></li>
                     <li class="nav_bar_container__list--item"><a href="#servicesSection">Restaurant</a></li>
                     <li class="nav_bar_container__list--item"><a href="#aboutSection">About us</a></li>
                     <li class="nav_bar_container__list--item"><a href="#blogSection">blog</a></li>
                     <li class="nav_bar_container__list--item"><a href="#contactSection">contact</a></li>
-                    <li class="nav_bar_container__list--item">
+                    <li class="nav_bar_container__list--item" :class="{scrolledNavBar__additional: isScrolled || isNavigated}">
                         <img src="../assets/icons/phone.svg" alt="phone_logo">
                         <span class="nav_bar_container__list--item">+995 555 555 555</span>
-                        <img src="../assets/icons/facebook.svg" alt="facebook_logo">
+                        <img v-if="!isScrolled" src="../assets/icons/facebook.svg" alt="facebook_logo_white">
+                        <img v-else src="../assets/icons/facebookmob.png" alt="fb_logo_black">
                     </li>
                     <li class="nav_bar_container__list--item">ENG</li>
                 </ul>
@@ -66,15 +67,15 @@ export default {
     computed: {
         isScrolled(){
             return this.$store.getters.isScrolled
+        },
+        isNavigated(){
+            return !!this.$route.params.slug;
         }
     }
 }
 </script>
 
 <style lang="scss" scoped>
-.active{
-    border-bottom: 2px solid red;
-}
 @keyframes fade-in{
     from{
         opacity: 0;
@@ -224,11 +225,13 @@ export default {
             letter-spacing: 0.3rem;
             font-weight: 100;
             font-size: 2.2rem;
-            color: #fff;
+            color: rgba(255, 255, 255, 0.8);
             line-height: 3rem;
+            border-bottom: 2px solid transparent;
             a{
                 text-decoration: none;
                 color: inherit;
+                padding-bottom: 0.5rem;
             }
             & img:first-child{
                 margin-right: 0.2rem;
@@ -236,12 +239,26 @@ export default {
         }
     }
 }
+.active{
+    border-bottom: 2px solid #56D9D4;
+    color: #fff;
+    font-family: 'larsseit-medium';
+}
 .scrolledNavBar{
-    background-color: #000;
+    background-color: #fff;
+    padding: 2rem 0;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 100;
+    border-bottom: 1px solid #56D9D4;
+    box-shadow: 0 0.4rem 0.3rem 0.3rem rgba(0, 0, 0, 0.096);
+    &__list *{
+        color: black;
+    }
+    &__logo > h1{
+        color: #000;
+    }
 }
 </style>
 
