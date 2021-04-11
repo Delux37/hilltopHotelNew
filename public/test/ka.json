@@ -1,0 +1,20 @@
+{
+    "id" : "ka",
+    "navBar": {
+      "home": "მენიუ"
+    },
+    "roomTypes": {
+      "roomTypes": "ოთახის ტიპები",
+      "price": "ფასი",
+      "person": "პერსონა"
+    },
+    "aboutUs": "ჩვენს შესახებ",
+    "blogSection": "ბლოგი",
+    "contact": 
+    {
+        "contact": "კონტაქტი",
+        "phone": "ტელეფონი",
+        "email": "ფოსტა",
+        "adress": "მისამართი"
+    }
+}

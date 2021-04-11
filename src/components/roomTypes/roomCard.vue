@@ -6,8 +6,8 @@
         <div class="container__content">
             <h3 class="container__content--title">{{ title }}</h3>
             <div class="container__content--additional">
-                <p>Price: {{ price }}</p>
-                <p>Person: {{ human_capacity }}</p>
+                <p>{{ $t('roomTypes.price') }}: {{ price }}</p>
+                <p>{{ $t('roomTypes.person') }}: {{ human_capacity }}</p>
             </div>
             <div class="container__content__box">
             <p class="container__content--description" >

@@ -35,24 +35,28 @@ export default {
     },
     images(){
       return this.$store.getters.images;
+    },
+    currentLanguage(){
+      return this.$i18n.locale
     }
   },
-  methods: {
+methods: {
     onScroll(){
-     
+     console.log('fired');
+     onscroll();
       onscroll = function (){       
       var sections = document.querySelectorAll('section');
+      console.log(sections);
       var scrollPosition = document.documentElement.scrollTop;
       
         sections.forEach((section) => {
           if(scrollPosition >= section.offsetTop - section.offsetHeight * 0.25 && scrollPosition < section.offsetTop + section.offsetHeight){
             const currentId = section.attributes.id.value
             const selector = `nav a[href="#${currentId}"]`;
-
+            console.log(currentId);
             document.querySelectorAll('nav a').forEach(el => {
               el.classList.remove("active");
             });
-
             document.querySelectorAll(selector).forEach(elem => {
               elem.classList.add('active')
             })
@@ -60,12 +64,21 @@ export default {
         })
       
       }
-
     }
   },
   watch: {
     isZoomed() {
       document.querySelector('body').style.overflow = this.isZoomed ? 'hidden' : null;
+    },
+    currentLanguage(language){
+      this.$store.dispatch('changeLanguage', language);
+
+      this.$store.dispatch('fetchSliderData');
+      this.$store.dispatch('fetchRoomTypesData');
+      this.$store.dispatch('fetchServiceData');
+      this.$store.dispatch('fetchAboutData');
+      this.$store.dispatch('fetchBlogs');
+      this.$store.dispatch('fetchContactData');
     }
   }
 }
@@ -82,7 +95,12 @@ $dark-gray-color: #464646;
 }
 
 html {
-  font-size: 62.5%  
+  font-size: 62.5%;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 @media (max-width: 1660px){
@@ -91,6 +109,10 @@ html {
     }
 }
 body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
 }
 /* FONTS */

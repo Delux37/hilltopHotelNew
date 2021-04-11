@@ -58,6 +58,7 @@ export default {
 .header_main{
     position: relative;
     z-index: 120;
+    width: 100vw;
 }
 .custom_bullets{
     z-index: 120;

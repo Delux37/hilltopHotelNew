@@ -1,0 +1,20 @@
+{
+    "id" : "en",
+    "navBar": {
+      "home": "home"
+    },
+    "roomTypes": {
+      "roomTypes": "Room Types",
+      "price": "price",
+      "person": "person"
+    },
+    "aboutUs": "About us",
+    "blogSection": "Blog",
+    "contact": 
+    {
+        "contact": "contaxt",
+        "phone": "phone",
+        "email": "email",
+        "adress": "address"
+    }
+}

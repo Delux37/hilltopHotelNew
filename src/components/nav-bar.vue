@@ -6,19 +6,21 @@
             </div>
             <nav class="nav_bar_container__navigation">
                 <ul class="nav_bar_container__list" :class="{scrolledNavBar__list: isScrolled || isNavigated}">
-                    <li class="nav_bar_container__list--item"><a href="#home" class="active">Home</a></li>
-                    <li class="nav_bar_container__list--item"><a href="#roomTypes">Room Types</a></li>
-                    <li class="nav_bar_container__list--item"><a href="#servicesSection">Restaurant</a></li>
-                    <li class="nav_bar_container__list--item"><a href="#aboutSection">About us</a></li>
-                    <li class="nav_bar_container__list--item"><a href="#blogSection">blog</a></li>
-                    <li class="nav_bar_container__list--item"><a href="#contactSection">contact</a></li>
+                    <li class="nav_bar_container__list--item"><a href="#home" class="active">{{ $t('navBar.home') }}</a></li>
+                    <li class="nav_bar_container__list--item"><a href="#roomTypes">{{ $t('navBar.roomTypes') }}</a></li>
+                    <li class="nav_bar_container__list--item"><a href="#servicesSection">{{ $t('navBar.services') }}</a></li>
+                    <li class="nav_bar_container__list--item"><a href="#aboutSection">{{ $t('navBar.aboutUs') }}</a></li>
+                    <li class="nav_bar_container__list--item"><a href="#blogSection">{{ $t('navBar.blog') }}</a></li>
+                    <li class="nav_bar_container__list--item"><a href="#contactSection">{{ $t('navBar.contact')}}</a></li>
                     <li class="nav_bar_container__list--item" :class="{scrolledNavBar__additional: isScrolled || isNavigated}">
                         <img src="../assets/icons/phone.svg" class="nav_bar_container__list__phone_logo" alt="phone_logo">
                         <span class="nav_bar_container__list--item">+995 555 555 555</span>
                         <img v-if="!isScrolled" src="../assets/icons/facebook.svg" alt="facebook_logo_white">
                         <img v-else src="../assets/icons/facebookmob.png" alt="fb_logo_black">
                     </li>
-                    <li class="nav_bar_container__list--item">ENG</li>
+                    <li class="nav_bar_container__list--item" :mode="isScrolled? 'scrolled' : 'notScrolled'">
+                        <drop-down />
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -58,7 +60,11 @@
 </template>
 
 <script>
+import dropDown from './drop-down'
 export default {
+    components: {
+        dropDown
+    },
     data(){
         return {
             temp: false,

@@ -8,7 +8,7 @@
         <room-types></room-types>
         <additional-info></additional-info>
         <section id="aboutSection" class="about-section" v-if="aboutData">
-          <h4 class="about-section__header">About us</h4>
+          <h4 class="about-section__header">{{ $t('aboutUs') }}</h4>
           <p class="about-section__paragraph">
             <span v-html="aboutData.description"></span>
           </p>

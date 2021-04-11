@@ -1,10 +1,11 @@
 <template>
     <section id="contactSection" class="contact_container">
+        CONTACT
         <div class="contact_container__box">
             <div class="contact_container__content" v-if="contact">
-                <h4 class="contact_container__content--text">Phone: {{ contact.phone }}</h4>
-                <h4 class="contact_container__content--text">Email: {{ contact.email }}</h4>
-                <h4 class="contact_container__content--text">Address: {{ contact.address }}</h4>
+                <h4 class="contact_container__content--text">{{ $t('contact.phone') }}: {{ contact.phone }}</h4>
+                <h4 class="contact_container__content--text">{{ $t('contact.email') }}: {{ contact.email }}</h4>
+                <h4 class="contact_container__content--text">{{ $t('contact.adress') }}: {{ contact.address }}</h4>
             </div> 
         </div>
         <div class="contact_container__map">

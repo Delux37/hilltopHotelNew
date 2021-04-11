@@ -1,0 +1,25 @@
+{
+    "id": "ru",
+    "navBar": {
+      "home": "МЕНЮ",
+      "roomTypes": "ТИПЫ НОМЕРОВ",
+      "services": "СЕРВИСЫ",
+      "aboutUs": "О НАС",
+      "blog": "БЛОГ",
+      "contact": "КОНТАКТ"
+    },
+    "roomTypes": {
+      "roomTypes": "ТИПЫ НОМЕРОВ",
+      "price": "ЦЕНА",
+      "person": "ВМЕСТИМОСТЬ"
+    },
+    "aboutUs": "О НАС",
+    "blogSection": "БЛОГ",
+    "contact": 
+    {
+        "contact": "контакт",
+        "phone": "ТЕЛЕФОН",
+        "email": "ПОЧТА",
+        "adress": "ПОЧТА"
+    }
+}

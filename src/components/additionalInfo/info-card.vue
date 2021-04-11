@@ -69,7 +69,7 @@ export default {
             position: static;
             margin-top: -7rem;
             width: 90%;
-            margin-left: 5rem;
+            // margin-left: 5rem;
             border-right: 1px solid #56D9D4;
             border-left: none;
             padding: 2rem;
@@ -110,7 +110,7 @@ export default {
             position: static;
             margin-top: -7rem;
             width: 90%;
-            margin-left: 5rem;
+            // margin-left: 5rem;
             border-right: 1px solid #56D9D4;
             border-left: none;
             padding: 2rem;
