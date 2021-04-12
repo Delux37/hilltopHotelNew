@@ -1,22 +1,16 @@
 <template>	
 <div>
   <div class="aselect">
-	    <div class="selector" :class="mode" @click="toggle()">
-	        <div class="label">
+	    <div class="selector" @click="toggle()">
+	        <div class="label" :class="{whiteBground: isScrolled}">
 				    <span>{{ $i18n.locale }}</span>
 	        </div>
-			<div class="arrow" :class="{ expanded : visible }"></div>
+			<div class="arrow" :class="{ expanded : visible, whiteBgroundArrow: isScrolled }"></div>
 	        <div :class="{ hidden : !visible, visible }">
 	            <ul>
 	                <li :class="{ current : item === value }" 
                     v-for="item in list" :key="item"
                      @click="select(item)">{{ item }}</li>
-					<!-- <li :class="{ current : item === value }" 
-                     @click="select(item)">EN</li>
-					<li :class="{ current : item === value }" 
-                     @click="select(item)">{{ item }}</li>
-					<li :class="{ current : item === value }" 
-                     @click="select(item)">{{ item }}</li> -->
 	            </ul>
 	        </div>
 	    </div>
@@ -26,7 +20,6 @@
 
 <script>
 export default {
-	props: ['mode'],
     data(){
     return {
 			value: 'en',
@@ -42,7 +35,12 @@ export default {
 			    this.value = option;
 				this.$i18n.locale = option;
 			}
-    }
+    },
+	computed: {
+		isScrolled(){
+			return this.$store.getters.isScrolled;
+		}
+	}
 }
 </script>
 
@@ -58,13 +56,6 @@ h1 {
   text-shadow: .3rem .4rem rgba(0,0,0,0.3);
 }
 
-.notScrolled{
-	color: #fff;
-}
-
-.scrolled{
-	color: #000;
-}
 
 .aselect {
 	// width: 280px;
@@ -130,5 +121,11 @@ h1 {
 			visibility: visible;
 		}
 	}
+.whiteBground{
+	color: #000 !important;
+}
+.whiteBgroundArrow{
+	border-top: 10px solid rgb(119, 119, 119) !important;
+}
 </style>
 

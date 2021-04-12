@@ -69,6 +69,12 @@ export default {
         width: 80%;
         height: 80%;
         background-color: #fff;
+        @media (max-width: 700px){
+            height: 50%;
+        }
+        @media (max-width: 500px){
+            height: 40%;
+        }
     }
 }
 </style>

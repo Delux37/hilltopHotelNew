@@ -38,22 +38,18 @@ export default {
     },
     currentLanguage(){
       return this.$i18n.locale
-    }
+    },
   },
 methods: {
     onScroll(){
-     console.log('fired');
-     onscroll();
-      onscroll = function (){       
+
+      onscroll = function (){
       var sections = document.querySelectorAll('section');
-      console.log(sections);
       var scrollPosition = document.documentElement.scrollTop;
-      
         sections.forEach((section) => {
           if(scrollPosition >= section.offsetTop - section.offsetHeight * 0.25 && scrollPosition < section.offsetTop + section.offsetHeight){
             const currentId = section.attributes.id.value
             const selector = `nav a[href="#${currentId}"]`;
-            console.log(currentId);
             document.querySelectorAll('nav a').forEach(el => {
               el.classList.remove("active");
             });
@@ -79,7 +75,7 @@ methods: {
       this.$store.dispatch('fetchAboutData');
       this.$store.dispatch('fetchBlogs');
       this.$store.dispatch('fetchContactData');
-    }
+    },
   }
 }
 </script>
@@ -96,10 +92,6 @@ $dark-gray-color: #464646;
 
 html {
   font-size: 62.5%;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
   overflow-x: hidden;
 }
 
@@ -109,10 +101,6 @@ html {
     }
 }
 body{
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
   overflow-x: hidden;
 }
 /* FONTS */
@@ -207,6 +195,30 @@ body{
 
 .zoom-leave-active{
   animation: zoomOut 0.5s ease-out;
+}
+
+/*SCROLLBAR */
+
+::-webkit-scrollbar-track
+{
+  background-color: #F5F5F5;
+}
+::-webkit-scrollbar
+{
+  width: 1px;
+  background-color: #F5F5F5;
+}
+::-webkit-scrollbar-thumb
+{
+  background-color: #56D9D4; 
+  background-image: -webkit-linear-gradient(45deg,
+                                            rgba(255, 255, 255, .2) 25%,
+                        transparent 25%,
+                        transparent 50%,
+                        rgba(255, 255, 255, .2) 50%,
+                        rgba(255, 255, 255, .2) 75%,
+                        transparent 75%,
+                        transparent)
 }
 
 </style>

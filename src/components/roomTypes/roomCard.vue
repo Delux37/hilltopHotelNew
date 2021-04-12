@@ -121,12 +121,20 @@ export default {
         &--button{
             border: none;
             outline: none;
-            background-color: none;
+            background-color: transparent;
+            border-bottom: 1px solid transparent;
+            color: gray;
             display: inline-block;
             width: fit-content;
             font-family: 'larsseit-light';
             font-size: 2rem;
             margin-bottom: 2rem;
+            transition: all .3s;
+            &:hover{
+                border-bottom: 1px solid #56D9D4;
+                color: #494949;
+                cursor: pointer;
+            }
             @media (max-width: 800px){
                 align-self: flex-end;
                 margin-bottom: 0;

@@ -53,7 +53,7 @@ export default {
     &__content{
         min-height: 80%;
         max-height: 100%;
-        overflow: scroll;
+        overflow-y:scroll;
         align-self: center;
         z-index: 20;
         position: absolute;
@@ -89,6 +89,9 @@ export default {
             font-family: 'caslon-medium';
             font-size: 3rem;
             letter-spacing: 0.2rem;
+            @media (max-width: 1500px){
+                font-size: 2.5rem;
+            }
              @media (max-width: 1000px){
                 font-size: 2rem;
             }
@@ -99,6 +102,9 @@ export default {
         &--description{
             font-family: 'larsseit-thin-italic';
             font-size: 2rem;
+            @media (max-width: 1500px){
+                font-size: 1.8rem;
+            }
             @media (max-width: 1000px){
                 font-size: 1.5rem;
             }
@@ -108,10 +114,18 @@ export default {
             font-family: 'larsseit-light';
             font-size: 1.8rem;
             text-decoration: none;
-            color: #464646;
-            border-bottom: 1px solid #56D9D4;
+            color: gray;
+            border-bottom: 1px solid transparent;
             padding-bottom: 0.2rem;
+            transition: all .3s;
+            &:hover{
+                cursor: pointer;
+                border-bottom: 1px solid #56D9D4;
+                color: #464646;
+            }
         }
     }
 }
+
+
 </style>

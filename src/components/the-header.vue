@@ -68,6 +68,9 @@ export default {
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
+    @media (max-width: 800px){
+        top: 35%;   
+    }
     &__bullet{
         color: rgba(255, 255, 255, 0.7);
         font-size: 3rem;
@@ -96,6 +99,11 @@ export default {
     font-size: 5rem;
     font-family: 'caslon-medium';
     font-size: 3.5rem;
+    @media (max-width: 800px){
+        bottom: 50%;
+        left: 1rem;
+        font-size: 3rem;
+    }
 }
 .vueperslide__content{
     position: absolute;
@@ -105,6 +113,12 @@ export default {
     font-family: 'caslon-medium';
     font-size: 2.5rem;
     z-index: 50;
+    @media (max-width: 800px){
+        bottom: 42%;
+        left: 1rem;
+        font-size: 2rem;
+        width: 60%;
+    }
 }
 
 

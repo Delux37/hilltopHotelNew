@@ -1,7 +1,7 @@
 <template>
     <div id="wrapper">
         <div class="nav_bar_container" :class="{scrolledNavBar: isScrolled || isNavigated}">
-            <div class="nav_bar_container__logo" :class="{scrolledNavBar__logo: isScrolled || isNavigated}">
+            <div class="nav_bar_container__logo" @click="$router.replace('/')" :class="{scrolledNavBar__logo: isScrolled || isNavigated}">
                 <h1 class="nav_bar_container__logo--text">Hilltop Hotel</h1>
             </div>
             <nav class="nav_bar_container__navigation">
@@ -18,7 +18,7 @@
                         <img v-if="!isScrolled" src="../assets/icons/facebook.svg" alt="facebook_logo_white">
                         <img v-else src="../assets/icons/facebookmob.png" alt="fb_logo_black">
                     </li>
-                    <li class="nav_bar_container__list--item" :mode="isScrolled? 'scrolled' : 'notScrolled'">
+                    <li class="nav_bar_container__list--item">
                         <drop-down />
                     </li>
                 </ul>
@@ -216,6 +216,9 @@ export default {
     &__logo{
         margin-left: 5rem;
         font-family: 'caslon-medium', sans-serif;
+        &:hover{
+            cursor: pointer;
+        }
         &--text{
             color: #fff;
             font-size: 3.5rem;

@@ -56,6 +56,7 @@ export default {
     &__content{
         max-height: 80%;
         overflow: hidden;
+        overflow-y: scroll;
         position: absolute;
         align-self: center;
         border-left: 1px solid #56D9D4;
@@ -78,6 +79,10 @@ export default {
                 font-size: 5rem;
                 font-family: 'caslon-medium';
                 margin-bottom: 7rem;
+                @media(max-width: 1400px){
+                    margin-bottom: 4rem;
+                    font-size: 4rem;
+                }
                  @media(max-width: 800px){
                     margin-bottom: 2rem;
                     font-size: 3.5rem;
