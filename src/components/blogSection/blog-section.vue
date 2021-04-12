@@ -10,7 +10,7 @@
              :image="blog.picture.crop"></blogCard>
         </div>
         <div class="blogButton__container">
-            <button class="blogButton__container__button">Load more</button>
+            <button class="blogButton__container__button" v-if="!isLoadAvailable" @click="$store.dispatch('loadMore')">Load more</button>
         </div>
     </section>
 </template>
@@ -27,6 +27,9 @@ export default {
     computed: {
         blogList(){
             return this.$store.getters.getBlogs;
+        },
+        isLoadAvailable(){
+            return this.$store.getters.isLoadAvailable === null;
         }
     }
 }
@@ -67,6 +70,7 @@ export default {
 
         &:hover{
             cursor: pointer;
+            color: #000;
         }
     }
 }

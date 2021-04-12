@@ -5,13 +5,21 @@ const blogListModule = {
         blogList: null,
 
         blogDetail: null,
+
+        nextPage: '',
     },
     mutations: {
         
     setBlogs(state, payload){
         state.blogList = payload.results
+        state.nextPage = payload.next
       },
-  
+      
+      appendBlogs(state, payload){
+        state.blogList.push(...payload.results);
+        state.nextPage = payload.next
+      },
+      
       setBlogDetail(state,payload){
         state.blogDetail = payload;
       },
@@ -34,7 +42,14 @@ const blogListModule = {
             })
             commit('setBlogDetail', data.data)
           },
-      
+          async loadMore({commit, state ,rootState}) {
+            const data = await request.get(state.nextPage, {
+                headers : {
+                    'Accept-Language' : rootState.globalLanguage
+                }
+            })
+            commit('appendBlogs', data.data)
+          },
     },
     getters: {
         getBlogs(state){
@@ -44,6 +59,10 @@ const blogListModule = {
           getBlogDetail(state){
             return state.blogDetail
           },
+
+          isLoadAvailable(state){
+            return state.nextPage
+          }
     }
 };
 export default blogListModule

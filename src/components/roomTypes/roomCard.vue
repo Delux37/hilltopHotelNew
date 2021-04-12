@@ -101,6 +101,9 @@ export default {
             font-family: 'caslon-medium';
             font-size: 3rem;
             margin-bottom: 2rem;
+            @media (max-width: 1330px){
+                font-size: 2.3rem;
+            }
         }
         &--additional{
             margin-left: 3rem;
@@ -110,6 +113,9 @@ export default {
             font-size: 2.2rem;
             text-transform: uppercase;
             margin-bottom: 2rem;
+            @media (max-width: 1330px){
+                font-size: 1.5rem;
+            }
         }
         &--description{
 

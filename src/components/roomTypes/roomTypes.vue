@@ -1,6 +1,5 @@
 <template>
     <section id="roomTypes">
-
         <h2 class="title">{{ $t('roomTypes.roomTypes') }}</h2>
         <div class="box">
             <room-card v-for="room in roomList"
@@ -68,11 +67,13 @@ export default {
     margin-top: 10rem;
     margin-bottom: 5rem;
     text-transform: uppercase;
-
+    @media (max-width: 1330px){
+        font-size: 3rem;
+    }
         @media(max-width: 800px){
         margin-top: 0;
         margin-bottom: 3rem;
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     }

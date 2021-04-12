@@ -59,6 +59,10 @@ export default {
     position: relative;
     z-index: 120;
     width: 100vw;
+    background-color: rgb(114, 114, 114);
+}
+.vueperslides{
+    opacity: 0.8;
 }
 .custom_bullets{
     z-index: 120;
@@ -94,7 +98,7 @@ export default {
 .vueperslide__title{
     position: absolute;
     left: 5rem;
-    bottom: 20rem;
+    bottom: 15rem;
     color: white;
     font-size: 5rem;
     font-family: 'caslon-medium';
@@ -108,7 +112,7 @@ export default {
 .vueperslide__content{
     position: absolute;
     left: 5rem;
-    bottom: 15rem;
+    bottom: 10rem;
     color: white;
     font-family: 'caslon-medium';
     font-size: 2.5rem;

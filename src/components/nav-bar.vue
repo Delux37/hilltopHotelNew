@@ -14,9 +14,9 @@
                     <li class="nav_bar_container__list--item"><a href="#contactSection">{{ $t('navBar.contact')}}</a></li>
                     <li class="nav_bar_container__list--item" :class="{scrolledNavBar__additional: isScrolled || isNavigated}">
                         <img src="../assets/icons/phone.svg" class="nav_bar_container__list__phone_logo" alt="phone_logo">
-                        <span class="nav_bar_container__list--item">+995 555 555 555</span>
-                        <img v-if="!isScrolled" src="../assets/icons/facebook.svg" alt="facebook_logo_white">
-                        <img v-else src="../assets/icons/facebookmob.png" alt="fb_logo_black">
+                        <span class="nav_bar_container__list--item" v-if="phone">{{ phone.phone }}</span>
+                        <img v-if="!isScrolled" class="nav_bar_container__list__fb_logo" src="../assets/icons/facebook.svg" alt="facebook_logo_white">
+                        <img v-else class="nav_bar_container__list__fb_logo" src="../assets/icons/facebookmob.png" alt="fb_logo_black">
                     </li>
                     <li class="nav_bar_container__list--item">
                         <drop-down />
@@ -25,11 +25,13 @@
             </nav>
         </div>
 
-        <div class="mobile_nav_bar">
+        <div class="mobile_nav_bar" :class="{mobile_nav_bar__scrolled: isScrolled}">
             <div class="mobile_nav_bar__header">
-                <span @click="temp=!temp"><img src="../assets/icons/nav.png"/></span>
-                <h1>Hilltop Bakuriani</h1>
-                <span><img src="../assets/icons/whatsapp.svg"/></span>
+                <span v-if="!isScrolled" @click="temp=!temp"><img src="../assets/icons/nav.png"/></span>
+                <span v-else @click="temp=!temp"><img src="../assets/icons/burger.svg"/></span>
+                <h1 :class="{mobile_nav_bar__header__scrolled: isScrolled}">Hilltop Bakuriani</h1>
+                <span v-if="!isScrolled"><img src="../assets/icons/whatsapp.svg"/></span>
+                <span v-else><img src="../assets/icons/iconcontact.svg"/></span>
             </div>
                 <transition name="mobile">
                 <nav class="mobile_nav_bar__link" v-if="temp">
@@ -38,7 +40,7 @@
                         <span @click="temp=!temp"><img src="../assets/icons/iconclose.svg"></span>
                     </div>
                     <div class="mobile_nav_bar__link--dropdown">
-                        <h3>ENG</h3>
+                        <drop-down />
                         <div>
                             <span id="mobile_nav_bar__link--dropdown--fblogo"><img src="../assets/icons/facebookmob.png"/></span>
                             <span><img src="../assets/icons/iconcontact.svg"/></span>
@@ -76,6 +78,9 @@ export default {
         },
         isNavigated(){
             return !!this.$route.params.slug;
+        },
+        phone(){
+            return this.$store.getters.getContact
         }
     }
 }
@@ -124,6 +129,14 @@ export default {
     z-index: 200;
     width: 100vw;
     display: none;
+    transition: all .3s;
+    &__scrolled{
+        background-color: #fff;
+        position: fixed;
+        z-index: 999;
+        border-bottom: 1px solid #56D9D4;
+        padding: 1rem 0;
+    }
     @media (max-width: 800px){
         display: block;
     }
@@ -137,7 +150,9 @@ export default {
             font-size: 2rem;
             color: #fff;
             font-family: 'caslon-medium';
-            
+        }
+        &__scrolled{
+            color: black !important;
         }
         // &:first-child{
         //     margin-left: 1rem;
@@ -238,9 +253,21 @@ export default {
         height: 100%;
         align-items: center;
         text-transform: uppercase;
+        &__fb_logo{
+            @media (max-width: 1330px){
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+        }
         span{
             @media (max-width: 1200px){
                 display: none;
+            }
+        }
+         @media (max-width: 1330px){
+            &__phone_logo{
+                width: 1rem;
+                height: 2rem;
             }
         }
         &__phone_logo{
@@ -261,6 +288,10 @@ export default {
             @media (max-width: 1660px){
                 margin-right: 1.5rem;
             }
+            @media (max-width: 1330px){
+                font-size: 1.5rem;
+                margin-right: 1rem;
+            }
             a{
                 text-decoration: none;
                 color: inherit;
@@ -279,7 +310,7 @@ export default {
 }
 .scrolledNavBar{
     background-color: #fff;
-    padding: 2rem 0;
+    padding: 1rem 0;
     position: fixed;
     top: 0;
     left: 0;

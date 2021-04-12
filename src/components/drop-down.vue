@@ -81,9 +81,21 @@ h1 {
 				transform: rotateZ(0deg) translateY(0px);
 				transition-duration: 0.3s;
 				transition-timing-function: cubic-bezier(.59,1.39,.37,1.01);
+				@media(max-width: 800px){
+					border-top: 5px solid #000;
+					border-left: 3px solid transparent;
+					border-right: 3px solid transparent;
+					top: 50%;
+					transform: translateY(-50%);
+					transition: none;
+				}
 			}
 			.expanded {
 				transform: rotateZ(180deg) translateY(2px);
+				@media(max-width: 800px){
+					top: 9%;
+					transform: rotateZ(0) translateY(0);
+				}
 			}
 			.label {
 				display: block;
@@ -91,6 +103,10 @@ h1 {
 				font-size: 1.6rem;
 				color: #fff;
                 margin-right: 2rem;
+				text-transform: uppercase;
+				@media(max-width: 800px){
+					color: #000;
+				}
             }
 		}
 		ul {
@@ -102,6 +118,9 @@ h1 {
 			position: absolute;
 			z-index: 1;
             background: #fff;
+			@media(max-width: 800px){
+				position: static;
+			}
 		}
 		li {
 			padding: 12px;
@@ -115,10 +134,12 @@ h1 {
 			background: #eaeaea;
 		}
 		.hidden {
-			visibility: hidden;
+			// visibility: hidden;
+			display: none;
 		}
 		.visible {
-			visibility: visible;
+			// visibility: visible;
+			display: block;
 		}
 	}
 .whiteBground{
